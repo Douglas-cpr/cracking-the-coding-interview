@@ -1,0 +1,1 @@
+* Exercises and Notes from book Cracking the Coding Interview
