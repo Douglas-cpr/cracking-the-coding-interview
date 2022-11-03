@@ -1,19 +1,25 @@
 ﻿using Chap1.ArrayList;
+using Chap1.HashTable;
 
 internal class Program
 {
   private static void Main(string[] args)
   {
+    // ArrayList
+    var merged = merge();
 
-    var arr1 = new string[] { "a", "b", "c", "d", "e" };
-    var arr2 = new string[] { "a", "b", "c", "d"};
-
-    var merged = merge(arr1, arr2);
+    // HashTable
+    var hashTable = new MyHashTable<string, int>();
+    hashTable.Add("a", 1);
+    hashTable.Add("a", 2);
   }
 
 
-  private static MyArrayList merge(string[] a, string[] b)
+  private static MyArrayList merge()
   {
+    var a = new string[] { "a", "b", "c", "d", "e" };
+    var b = new string[] { "a", "b", "c", "d"};
+
     var arrayList = new MyArrayList();
 
     foreach(var str in a) arrayList.Add(str);
