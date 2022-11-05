@@ -12,6 +12,9 @@ internal class Program
     var hashTable = new MyHashTable<string, int>();
     hashTable.Add("a", 1);
     hashTable.Add("a", 2);
+
+    var exercises = new Exercices();
+    exercises.Main();
   }
 
 
