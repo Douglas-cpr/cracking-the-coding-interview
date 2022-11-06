@@ -1,3 +1,4 @@
+using System.Text;
 
 public class Exercices 
 {
@@ -13,6 +14,8 @@ public class Exercices
     CheckPermutationO2(permutationParam1, permutationParam2);
     CheckPermutationON(permutationParam1, permutationParam2);
 
+
+    Urlify("Mr John Smith", 13);
   }
 
   public bool UniqueWithoutDataStructures(string value) 
@@ -63,13 +66,13 @@ public class Exercices
     var count1 = new int[NO_OF_CHARS];
     var count2 = new int[NO_OF_CHARS];
 
+    if (v1.Length != v2.Length) return false;
+
     for (var i = 0; i < v1.Length && i < v2.Length; i++)
     { 
       count1[v1[i]]++;
       count2[v2[i]]++;
     }
-
-    if (v1.Length != v2.Length) return false;
  
     for (var i = 0; i < NO_OF_CHARS; i++) 
     {
@@ -79,5 +82,26 @@ public class Exercices
     return true;
   }
 
+  public string Urlify(string url, int trueUrlLength)
+  {
+    var urlChars = url.ToCharArray();
+    var result = new StringBuilder();
+
+    if (urlChars.Length != trueUrlLength) throw new ArgumentException("Size of url must be " + trueUrlLength);
+
+    for (var i = 0; i < urlChars.Length; i++) 
+    {
+      if (Char.IsWhiteSpace(urlChars[i]))
+      {
+        result.Append("%20");
+      }
+      else
+      {
+        result.Append(urlChars[i]);
+      }
+    } 
+
+    return result.ToString();
+  }
 }
 
