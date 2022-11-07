@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text;
 
 public class Exercices 
@@ -16,6 +17,9 @@ public class Exercices
 
 
     Urlify("Mr John Smith", 13);
+
+    CheckPalindromePermutation("Tact coa");
+    CheckPalindromePermutation("Tic Toe");
   }
 
   public bool UniqueWithoutDataStructures(string value) 
@@ -103,5 +107,52 @@ public class Exercices
 
     return result.ToString();
   }
+
+  public bool CheckPalindromePermutation(string value)
+  {
+    var sanitizedValue = value.Replace(" ", "").ToLowerInvariant();
+    var chars = sanitizedValue.ToCharArray();
+    var mapping = new int[256];
+
+
+    // Verify odd values
+    foreach(var c in chars)
+    {
+      var idx = (int)c;
+
+      if (mapping[idx] == 0)
+      {
+        mapping[idx] = 1;
+      }
+      else 
+      {
+        mapping[idx] = 0;
+      }
+    }
+
+    var res = HasMoreOneOddValue(mapping);
+
+    return !res;
+  }
+
+  private bool HasMoreOneOddValue(int[] mapping)
+  {
+    var oddCounter = 0;
+
+    foreach(var val in mapping)
+    {
+      if (oddCounter > 1)
+      {
+        return true;
+      }
+
+      if ((int)val == 1) 
+      {
+        oddCounter++;
+      };
+    }
+    return false;
+  }
 }
+
 
