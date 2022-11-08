@@ -18,8 +18,13 @@ public class Exercices
 
     Urlify("Mr John Smith", 13);
 
-    CheckPalindromePermutation("Tact coa");
-    CheckPalindromePermutation("Tic Toe");
+    CheckPalindromePermutation("Tact coa"); // true
+    CheckPalindromePermutation("Tic Toe"); // false
+
+
+    HasOneAwayModification("pale", "bake"); // false
+    HasOneAwayModification("pale", "ple"); // true
+    HasOneAwayModification("pales", "pale"); // true
   }
 
   public bool UniqueWithoutDataStructures(string value) 
@@ -152,6 +157,28 @@ public class Exercices
       };
     }
     return false;
+  }
+
+  public bool HasOneAwayModification(string originalValue, string modifiedValue)
+  {
+    var originalValueCharArr = originalValue.ToCharArray();
+    var modifiedValueCharArr = modifiedValue.ToCharArray();
+
+    var diffLength = Math.Abs(originalValue.Length - modifiedValue.Length);
+    if (diffLength > 1) return false;
+    
+    var hashTable = new Hashtable();
+    var diffCount = 0;
+
+    var minSize = Math.Min(originalValue.Length, modifiedValue.Length);
+
+    for (var i = 0; i < minSize; i++)
+    {
+      if (originalValueCharArr[i] != modifiedValueCharArr[i]) diffCount++;
+      if (diffCount > 1) return false;
+    };
+
+    return true;
   }
 }
 
