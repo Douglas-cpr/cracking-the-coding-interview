@@ -25,6 +25,8 @@ public class Exercices
     HasOneAwayModification("pale", "bake"); // false
     HasOneAwayModification("pale", "ple"); // true
     HasOneAwayModification("pales", "pale"); // true
+
+    StringCompression("aabcccccaaa"); // a2b1c5a3
   }
 
   public bool UniqueWithoutDataStructures(string value) 
@@ -167,7 +169,6 @@ public class Exercices
     var diffLength = Math.Abs(originalValue.Length - modifiedValue.Length);
     if (diffLength > 1) return false;
     
-    var hashTable = new Hashtable();
     var diffCount = 0;
 
     var minSize = Math.Min(originalValue.Length, modifiedValue.Length);
@@ -179,6 +180,36 @@ public class Exercices
     };
 
     return true;
+  }
+
+  public string StringCompression(string value)
+  {
+    var arrayList = new ArrayList();
+    var chars = value.ToLower().ToArray();
+
+    var str = new StringBuilder();
+
+    int count = 0;
+
+    for (var i = 0; i < chars.Length; i++)
+    {
+      count++;
+      if (i == chars.Length - 1 || chars[i] != chars[i+1])
+      { 
+        var res = chars[i].ToString() + count.ToString();
+        arrayList.Add(res);
+        count = 0;
+      }
+    }
+
+    var result = new StringBuilder();
+
+    foreach(var item in arrayList)
+    {
+      result.Append(item);
+    }
+
+    return result.ToString();
   }
 }
 
