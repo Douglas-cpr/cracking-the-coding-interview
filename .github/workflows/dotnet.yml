@@ -20,7 +20,7 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore Chap-1-ArraysAndStrings.UnitTests/ 
       - name: Build
         run: dotnet build Chap-1-ArraysAndStrings.UnitTests/ --configuration Release --no-restore
       - name: Test
