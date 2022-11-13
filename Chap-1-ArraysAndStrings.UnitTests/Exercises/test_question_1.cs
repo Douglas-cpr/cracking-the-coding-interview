@@ -4,16 +4,15 @@ public class TestQuestion1
 {
 
     [Fact]
-    public void ReturnsTrue_WhenValueIsEmptyString()
+    public void ShouldTrue_WhenValueIsEmptyString()
     {
       var stringData = String.Empty;
       var result = Question1.IsUnique(stringData);
       result.Should().BeTrue();
     }
 
-
     [Fact]
-    public void ReturnTrue_WhenValuenHasOneCharacter()
+    public void ShouldTrue_WhenValuenHasOneCharacter()
     {
       var stringData = "a";
       var result = Question1.IsUnique(stringData);
@@ -21,10 +20,26 @@ public class TestQuestion1
     }
 
     [Fact]
-    public void ReturnTrue_WhenValuenHasTwoSameCharacterButDifferentCase()
+    public void ShouldTrue_WhenValuenHasTwoSameCharactersButDifferentCase()
     {
       var stringData = "aA";
       var result = Question1.IsUnique(stringData);
       result.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ShouldFalse_WhenValuesHasTwoSameCharacters()
+    {
+      var stringData = "aa";
+      var result = Question1.IsUnique(stringData);
+      result.Should().BeFalse();
+    }
+
+    [Fact]
+    public void ShouldFalse_WhenHasManyRepeatedCharacters()
+    {
+      var stringData = "aabbbcccccaaaakkk";
+      var result = Question1.IsUnique(stringData);
+      result.Should().BeFalse();
     }
 }

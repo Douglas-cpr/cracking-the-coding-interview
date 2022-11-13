@@ -9,10 +9,10 @@ public static class Question1
   // Time O(N)
   public static bool IsUnique(string value) 
   {
+    if (string.IsNullOrEmpty(value)) return true;
+
     var charArray = value.ToCharArray();
     var passed = new List<char>();
-
-    if (string.IsNullOrEmpty(value)) return true;
 
     for (var i = 0; i < charArray.Length; i++)
     {
