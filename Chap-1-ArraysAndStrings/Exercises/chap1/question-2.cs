@@ -7,11 +7,12 @@ namespace Code;
 public static class Question2
 {
 
-  // Space O(?)
-  // Time O(?)
+  // Space O(N)
+  // Time O(N)
   public static bool CheckPermutation1(string value1, string value2)
   {
     if (string.IsNullOrEmpty(value1) || string.IsNullOrEmpty(value2)) throw new ArgumentException("Input values cannot be null or empty");
+    if (value1.Length != value2.Length) return false;
 
     var NO_OF_CHARS = 256;
 
@@ -19,8 +20,6 @@ public static class Question2
     var v2 = value2.ToCharArray();
     var count1 = new int[NO_OF_CHARS];
     var count2 = new int[NO_OF_CHARS];
-
-    if (v1.Length != v2.Length) return false;
 
     for (var i = 0; i < v1.Length && i < v2.Length; i++)
     { 
@@ -40,6 +39,7 @@ public static class Question2
   // Time O(?)
   public static bool CheckPermutation2(string value1, string value2)
   {
+    if (string.IsNullOrEmpty(value1) || string.IsNullOrEmpty(value2)) throw new ArgumentException("Input values cannot be null or empty");
     if (value1.Length != value2.Length) return false;
 
     var char1 = value1.ToCharArray();
