@@ -14,10 +14,13 @@ public static class Question3
   // Time O(?)
   public static string Urlify(string url, int trueUrlLength)
   {
+    if (string.IsNullOrWhiteSpace(url)) throw new ArgumentNullException("url cannot be null or empty");
+
+    if (url.Length != trueUrlLength) throw new ArgumentException("Size of url must be " + trueUrlLength);
+
     var urlChars = url.ToCharArray();
     var result = new StringBuilder();
 
-    if (urlChars.Length != trueUrlLength) throw new ArgumentException("Size of url must be " + trueUrlLength);
 
     for (var i = 0; i < urlChars.Length; i++) 
     {
