@@ -12,6 +12,8 @@ public class Question4
   // Time O(?)
   public static bool PalindromePermutation(string value)
   {
+    if (string.IsNullOrWhiteSpace(value) || value.Length == 1) return false;
+
     var sanitizedValue = value.Replace(" ", "").ToLowerInvariant();
     var chars = sanitizedValue.ToCharArray();
     var mapping = new int[256];

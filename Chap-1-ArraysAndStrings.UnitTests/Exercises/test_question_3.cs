@@ -7,9 +7,7 @@ public class TestQuestion3
   {
     var url = String.Empty;
     var urlLength = 0;
-
     var action = () => Question3.Urlify(url, urlLength);
-
     action.Should().Throw<ArgumentNullException>();
   }
 
@@ -18,9 +16,7 @@ public class TestQuestion3
   {
     var url = " ";
     var urlLength = 1;
-
     var action = () => Question3.Urlify(url, urlLength);
-
     action.Should().Throw<ArgumentNullException>();
   }
 
@@ -29,9 +25,7 @@ public class TestQuestion3
   {
     var url = "john doe";
     var urlLength = 3;
-
     var action = () => Question3.Urlify(url, urlLength);
-
     action.Should().Throw<ArgumentException>();
   } 
 
@@ -40,9 +34,7 @@ public class TestQuestion3
   {
     var url = "john doe";
     var urlLength = 8;
-
     var result = Question3.Urlify(url, urlLength);
-
     result.Should().Be("john%20doe");
   }
 
@@ -51,9 +43,7 @@ public class TestQuestion3
   {
     var url = "JOHN DOE";
     var urlLength = 8;
-
     var result = Question3.Urlify(url, urlLength);
-
     result.Should().Be("JOHN%20DOE");
   }
 
@@ -62,9 +52,7 @@ public class TestQuestion3
   {
     var url = "JOHN D@$ ";
     var urlLength = 9;
-
     var result = Question3.Urlify(url, urlLength);
-
     result.Should().Be("JOHN%20D@$%20");
   }
 }
