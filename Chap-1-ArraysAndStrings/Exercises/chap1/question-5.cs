@@ -14,6 +14,8 @@ public static class Question5
   // Time O(?)
   public static bool OneWay(string originalValue, string modifiedValue)
   {
+    if (originalValue == modifiedValue) return true;
+
     var originalValueCharArr = originalValue.ToCharArray();
     var modifiedValueCharArr = modifiedValue.ToCharArray();
 
