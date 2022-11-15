@@ -6,7 +6,6 @@ public class MyArrayList : IList
 {
   private object[] _items;
 
-
   public MyArrayList() 
   {
     _items = new object[1];

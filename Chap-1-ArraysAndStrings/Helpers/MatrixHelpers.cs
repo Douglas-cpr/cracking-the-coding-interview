@@ -2,6 +2,11 @@ namespace Helpers;
 
 public static class MatrixHelper
 {
+  // Example input:
+  // 1 2 3 4
+  // Example output:
+  // 1 2
+  // 3 4
   public static int[,] CreateMatrix(int[] list)
   {
     if (list.Length == 0) throw new ArgumentNullException("Input shouldn't not be empty array");
