@@ -26,15 +26,32 @@ public static class Question7
     var size = matrix.GetLength(0);
     var result = new int[size, size];
 
-    for (int row = 0; row < size; row++)
-    {
-      for (int col = 0; col < size; col++)
+
+    // transpose matrix
+    for (var row = 0; row < size; row++) {
+      for (var col = row; col < matrix.GetLength(row); col++)
       {
-        result[col, size - 1 - row] = matrix[row, col];
+        if (row != col)
+        {
+          var temp = matrix[row, col];
+          matrix[row, col] = matrix[col, row];
+          matrix[col, row] = temp;
+        }
       }
     }
 
-    return result;
+    // rotate
+    for (var i = 0; i < size; i++) 
+    {
+      for (var j = 0; j < size / 2; j++)
+      {
+        var temp = matrix[i, j];
+        matrix[i, j] = matrix[i, size - j - 1];
+        matrix[i, size - j - 1] = temp;
+      }
+    }
+
+    return matrix;
   }
 
   // Space: O(1)
