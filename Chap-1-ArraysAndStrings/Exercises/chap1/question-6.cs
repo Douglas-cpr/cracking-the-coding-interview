@@ -12,10 +12,15 @@ public static class Question6
   // Time O(?)
   public static string StringCompression(string value)
   {
+    if (string.IsNullOrWhiteSpace(value)) return value;
+    if (value.Length == 1) return value + "1";
+
     var arrayList = new ArrayList();
     var chars = value.ToLower().ToArray();
 
     var str = new StringBuilder();
+
+
 
     int count = 0;
 
