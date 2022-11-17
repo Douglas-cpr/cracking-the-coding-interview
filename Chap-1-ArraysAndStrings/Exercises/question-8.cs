@@ -4,10 +4,15 @@ public static class Question8
 {
   // 1.8 Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
-  // Space: O(?)
-  // Time: O(?)
+  // Space: O(N + M)
+  // Time: O(N2)
   public static void ZeroMatrix(int[,] matrix)
   {
+    if (matrix == null)
+    {
+      throw new ArgumentNullException(nameof(matrix));
+    }
+
     var zeroRows = new List<int>();
     var zeroCols = new List<int>();
 
@@ -26,15 +31,15 @@ public static class Question8
       }
     }
 
-    // foreach(var row in zeroRows)
-    // {
-    //   for (var col = 0; col < numCols; col++)
-    //   {
-    //     matrix[row, 0] = 0;
-    //   }
-    // }
+    foreach (var row in zeroRows)
+    {
+      for (var col = 0; col < numCols; col++)
+      {
+        matrix[row, col] = 0;
+      }
+    }
 
-    foreach(var col in zeroCols)
+    foreach (var col in zeroCols)
     {
       for (var row = 0; row < numRows; row++)
       {
