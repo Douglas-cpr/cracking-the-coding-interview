@@ -50,4 +50,14 @@ public class TestMatrixHelper
       var action = () => MatrixHelper.CreateMatrix(input);
       action.Should().Throw<ArgumentException>();
    }
+
+   [Fact]
+   public void ShouldCreateAnMatrixMxN_WhenInputValidValues()
+   {
+      var input = new int[] { 1, 2, 3, 4, 5, 6 };
+      var matrix = MatrixHelper.CreateMatrix(input, 2, 3);
+      matrix.Should().BeOfType<int[,]>();
+      matrix.Length.Should().Be(6);
+      matrix.GetLength(0).Should().Be(2);
+   }
 }

@@ -22,7 +22,7 @@ public static class Question7
     {
       throw new ArgumentException("Matrix needs to be square", nameof(matrix));
     }
-
+ 
     var size = matrix.GetLength(0);
     var result = new int[size, size];
 
