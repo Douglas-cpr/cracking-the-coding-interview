@@ -8,16 +8,29 @@ namespace Code;
 // Space: O(N)
 // Time: O(N)
 
+
+
 public static class Question9
 {
+  public static bool StringRotationOptimized(string s1, string s2)
+  {
+    if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2)) throw new ArgumentNullException("Input cannot be null or empty");
+    if (s1.Length != s2.Length) return false;
+
+    var  concBuilder = new StringBuilder();
+    concBuilder.Append(s1);
+    concBuilder.Append(s1);
+    return concBuilder.ToString().Contains(s2);
+  }
+
   public static bool StringRotation(string s1, string s2)
   {
+    if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2)) throw new ArgumentNullException("Input cannot be null or empty");
+    if (s1.Length != s2.Length) return false;
     var midLength = Math.Abs(s1.Length / 2);
     var init = s1.Substring(0, midLength);
     var final = s1.Substring(midLength);
-    
     var str = FindSubstring(init, final, midLength, s2);
-
     if (str == s1) return true;
     return false;
   }
