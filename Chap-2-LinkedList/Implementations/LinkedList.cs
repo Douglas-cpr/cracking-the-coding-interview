@@ -1,37 +1,66 @@
-using System.Reflection.Emit;
+namespace Code;
+
+public class MyLinkedList
+{
+  public Node Head { get; set; }
+
+  public MyLinkedList(Node node) 
+  {
+    Head = node;
+  }
+
+  public void AddLast(Node node)
+  {
+    if (Head.Next == null) 
+    {
+      Head.Next = node;
+      return;
+    }
+
+    var head = Head;
+
+    while(head.Next != null)
+    {
+      head = head.Next;
+    }
+
+    head.Next = node;
+  }
+}
+
 public class Node 
 {
-  Node next = null;
+  public Node Next = null;
 
-  int data;
+  public int Data;
 
   public Node(int d)
   {
-    data = d;
+    Data = d;
   }
 
   public void AppendToTail(int d)
   {
     Node end =  new Node(d);
     Node n = this;
-    while (n.next != null) n = n.next;
-    n.next = end;
+    while (n.Next != null) n = n.Next;
+    n.Next = end;
   }
 
   public Node Delete(Node head, int d)
   {
     Node n = head;
 
-    if (n.data == d) return head.next;
+    if (n.Data == d) return head.Next;
 
-    while (n.next != null)
+    while (n.Next != null)
     {
-      if(n.next.data == d) 
+      if(n.Next.Data == d) 
       {
-        n.next = n.next.next;
+        n.Next = n.Next.Next;
         return head;
       }
-      n = n.next;
+      n = n.Next;
     }
     return head;
   }
