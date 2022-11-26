@@ -19,17 +19,15 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
+      - name: Install dependencies Chap 1
         run: dotnet restore Chap-1-ArraysAndStrings.UnitTests/ 
       - name: Build_Chap1
         run: dotnet build Chap-1-ArraysAndStrings.UnitTests/ --configuration Release --no-restore
       - name: Test_Chap1
         run: dotnet test Chap-1-ArraysAndStrings.UnitTests/ --no-restore --verbosity normal  
-      - name: Test_Chap1
-        run: dotnet test Chap-1-ArraysAndStrings.UnitTests/ --no-restore --verbosity normal
+      - name: Install dependencies Chap 2
+        run: dotnet restore Chap-1-ArraysAndStrings.UnitTests/ 
       - name: Build_Chap2
         run: dotnet build Chap-2-LinkedList.UnitTests/ --configuration Release --no-restore
       - name: Test_Chap2
         run: dotnet test Chap-2-LinkedList.UnitTests/ --no-restore --verbosity normal  
-      - name: Test_Chap2
-        run: dotnet test Chap-2-LinkedList.UnitTests/ --no-restore --verbosity normal    
