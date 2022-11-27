@@ -8,8 +8,8 @@ namespace Code;
 public class Question4
 {
 
-  // Space O(?)
-  // Time O(?)
+  // Space O(N)
+  // Time O(N)
   public static bool PalindromePermutation(string value)
   {
     if (string.IsNullOrWhiteSpace(value) || value.Length == 1) return false;
@@ -37,8 +37,8 @@ public class Question4
     return !res;
   }
 
-  // Space O(?)
-  // Time O(?)
+  // Space O(N)
+  // Time O(N)
   private static bool HasMoreOneOddValue(int[] mapping)
   {
     var oddCounter = 0;

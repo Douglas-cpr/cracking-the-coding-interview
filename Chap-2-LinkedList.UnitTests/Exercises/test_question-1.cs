@@ -4,7 +4,7 @@ namespace Chap_2_LinkedList.UnitTests;
 
 public class TestQuestion1
 {
-  public Node BuildNodesToTest()
+  public Node<int> BuildNodesToTest()
   {
     var nodes = new Node(1);
     nodes.AppendToTail(2);

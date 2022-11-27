@@ -3,9 +3,9 @@ namespace Code;
 // note: From final to k, example list size - k >
 public static class Question2
 {
-  // Space O(?)
-  // Time O(?)
-  public static Node ReturnKthToLast(Node head, int k)
+  // Space O(1)
+  // Time O(N)
+  public static Node<int> ReturnKthToLast(Node<int> head, int k)
   {
     if (head == null) throw new ArgumentNullException(nameof(head));
     if (k < 0) throw new ArgumentOutOfRangeException("K must be non-negative value");

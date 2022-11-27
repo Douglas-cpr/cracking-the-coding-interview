@@ -1,61 +1,37 @@
 namespace Code;
 
-public class MyLinkedList
+public class Node : Node<int>
 {
-  public Node Head { get; set; }
-
-  public MyLinkedList(Node node) 
-  {
-    Head = node;
-  }
-
-  public void AddLast(Node node)
-  {
-    if (Head.Next == null) 
-    {
-      Head.Next = node;
-      return;
-    }
-
-    var head = Head;
-
-    while(head.Next != null)
-    {
-      head = head.Next;
-    }
-
-    head.Next = node;
-  }
+  public Node(int d) : base(d) { }
 }
 
-public class Node 
+public class Node<T>
 {
-  public Node Next = null;
+  public Node<T> Next = null;
 
-  public int Data;
+  public T Data;
 
-  public Node(int d)
+  public Node(T d)
   {
     Data = d;
   }
 
-  public void AppendToTail(int d)
+  public void AppendToTail(T d)
   {
-    Node end =  new Node(d);
-    Node n = this;
+    Node<T> end =  new Node<T>(d);
+    Node<T> n = this;
     while (n.Next != null) n = n.Next;
     n.Next = end;
   }
 
-  public Node Delete(Node head, int d)
+  public Node<T> Delete(Node<T> head, T d)
   {
-    Node n = head;
-
-    if (n.Data == d) return head.Next;
+    Node<T> n = head;
+    if (Equals(n.Data, d)) return head.Next;
 
     while (n.Next != null)
     {
-      if(n.Next.Data == d) 
+      if(Equals(n.Next.Data, d)) 
       {
         n.Next = n.Next.Next;
         return head;
@@ -63,5 +39,10 @@ public class Node
       n = n.Next;
     }
     return head;
+  }
+
+  private bool Equals(T x, T y)
+  {
+    return EqualityComparer<T>.Default.Equals(x, y);
   }
 }

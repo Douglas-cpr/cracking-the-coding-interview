@@ -9,9 +9,8 @@ namespace Code;
 
 public static class Question3
 {
-
-  // Space O(?)
-  // Time O(?)
+  // Space O(N)
+  // Time O(N)
   public static string Urlify(string url, int trueUrlLength)
   {
     if (string.IsNullOrWhiteSpace(url)) throw new ArgumentNullException("url cannot be null or empty");

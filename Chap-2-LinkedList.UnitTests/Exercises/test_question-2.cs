@@ -2,7 +2,7 @@ namespace Chap_2_LinkedList.UnitTests;
 
 public class TestQuestion2
 {
-  public Node BuildNodesToTest()
+  public Node<int> BuildNodesToTest()
   {
     var nodes = new Node(1);
     nodes.AppendToTail(2);
@@ -36,7 +36,7 @@ public class TestQuestion2
   {
     var nodes = BuildNodesToTest();
     var response = Question2.ReturnKthToLast(nodes, 2);
-    var expectedResponse = new Node(6);
+    var expectedResponse = new Node<int>(6);
     expectedResponse.AppendToTail(7);
     while (expectedResponse != null && response != null)
     {

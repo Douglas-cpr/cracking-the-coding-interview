@@ -2,9 +2,9 @@ namespace Code;
 // 2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list
 public static class Question1
 {
-  // Space O(?)
-  // Time O(?)
-  public static void RemoveDups(Node head)
+  // Space O(N)
+  // Time O(N)
+  public static void RemoveDups(Node<int> head)
   {
     if (head == null) throw new ArgumentNullException(nameof(head));
     if (head.Next == null) return;
@@ -27,7 +27,9 @@ public static class Question1
     }
   }
 
-  public static void RemoveDups_TwoPointers(Node head)
+  // Space O(N)
+  // Time O(N)
+  public static void RemoveDups_TwoPointers(Node<int> head)
   {
     if (head == null) throw new ArgumentNullException(nameof(head));
     if (head.Next == null) return;
