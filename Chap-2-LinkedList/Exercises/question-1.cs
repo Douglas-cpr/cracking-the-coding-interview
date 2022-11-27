@@ -1,11 +1,9 @@
-using System.Reflection.Metadata.Ecma335;
-using System.IO.Pipes;
-using System.Reflection.Emit;
-using System.Diagnostics.Contracts;
 namespace Code;
-
+// 2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list
 public static class Question1
 {
+  // Space O(?)
+  // Time O(?)
   public static void RemoveDups(Node head)
   {
     if (head == null) throw new ArgumentNullException(nameof(head));
