@@ -1,25 +1,15 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Chap_2_LinkedList.Helpers;
+
 namespace Chap_2_LinkedList.UnitTests;
 
 public class TestQuestion1
 {
-  public Node<int> BuildNodesToTest()
-  {
-    var nodes = new Node(1);
-    nodes.AppendToTail(2);
-    nodes.AppendToTail(2);
-    nodes.AppendToTail(4);
-    nodes.AppendToTail(10);
-    nodes.AppendToTail(10);
-    nodes.AppendToTail(66);
-    return nodes;
-  }
-
   [Fact]
   public void ShouldRemoveDuplicatedValuesFromLinkedList_WhenIsValid_Normal()
   { 
-    var nodes = BuildNodesToTest();
+    var nodes = LinkedListHelpers.CreateLinkedList(1, 2, 2, 4, 10, 10, 66);
 
     Question1.RemoveDups(nodes);
 
@@ -37,7 +27,7 @@ public class TestQuestion1
   [Fact]
   public void ShouldRemoveDuplicatedValuesFromLinkedList_WhenIsValid_TwoPointers()
   { 
-    var nodes = BuildNodesToTest();
+    var nodes = LinkedListHelpers.CreateLinkedList(1, 2, 2, 4, 10, 10, 66);
 
     Question1.RemoveDups_TwoPointers(nodes);
     

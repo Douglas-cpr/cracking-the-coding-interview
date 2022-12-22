@@ -1,18 +1,13 @@
+using Chap_2_LinkedList.Helpers;
+
 namespace Chap_2_LinkedList.UnitTests;
 
 public class TestQuestion6
 {
-  private Node<string> BuildNodesToTest(List<string> values)
-  {
-    var nodes = new Node<string>(values[0]);
-    for(var i = 1; i < values.Count; i++) nodes.AppendToTail(values[i]);
-    return nodes;
-  }
-
   [Fact]
   public void ShouldReturnTrue_WhenIsPalindrome()
   {
-    var input = BuildNodesToTest(new() { "a", "i", "a" });
+    var input = LinkedListHelpers.CreateLinkedList("a", "i", "a");
     var result = Question6.Palindrome(input);
     result.Should().BeTrue();
   }
@@ -20,7 +15,7 @@ public class TestQuestion6
   [Fact]
   public void ShouldReturnTrue_WhenIsPalindrome2()
   {
-    var input = BuildNodesToTest(new() { "r", "e", "v", "i", "v", "e", "r" });
+    var input = LinkedListHelpers.CreateLinkedList("r", "e", "v", "i", "v", "e", "r");
     var result = Question6.Palindrome(input);
     result.Should().BeTrue();
   }
@@ -28,7 +23,7 @@ public class TestQuestion6
   [Fact]
   public void ShouldReturnTrue_WhenHasOneCharacter()
   {
-    var input = BuildNodesToTest(new() { "r" });
+    var input = LinkedListHelpers.CreateLinkedList("r");
     var result = Question6.Palindrome(input);
     result.Should().BeTrue();
   }
@@ -36,7 +31,7 @@ public class TestQuestion6
   [Fact]
   public void ShouldReturnFalse_WhenIsNotPalindrome()
   {
-    var input = BuildNodesToTest(new() { "b", "c", "a" });
+    var input = LinkedListHelpers.CreateLinkedList("b", "c", "a");
     var result = Question6.Palindrome(input);
     result.Should().BeFalse();
   }

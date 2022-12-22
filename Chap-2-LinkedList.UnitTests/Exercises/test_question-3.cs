@@ -1,18 +1,13 @@
+using Chap_2_LinkedList.Helpers;
+
 namespace Chap_2_LinkedList.UnitTests;
 
 public class TestQuestion3
 {
-  public Node<string> BuildNodesToTest(List<string> values)
-  {
-    var nodes = new Node<string>(values[0]);
-    for(var i = 1; i < values.Count; i++) nodes.AppendToTail(values[i]);
-    return nodes;
-  }
-
   [Fact]
   public void ShouldReturnHeadWithoutModification_WhenDontHaveMiddleNode()
   {
-    var nodes = BuildNodesToTest(new List<string>() { "a", "b" });
+    var nodes = LinkedListHelpers.CreateLinkedList("a", "b");
     var result = Question3.DeleteMiddleNode(nodes);
     var expectedResponse = new Node<string>("a");
     expectedResponse.AppendToTail("b");
@@ -27,7 +22,7 @@ public class TestQuestion3
   [Fact]
   public void ShouldThrowAnArgumentOutOfRangeException_WhenKIsSmallerThanZero()
   {
-    var nodes = BuildNodesToTest(new List<string>() { "a", "b", "c" });
+    var nodes = LinkedListHelpers.CreateLinkedList("a", "b", "c");
     var result = Question3.DeleteMiddleNode(nodes);
     var expectedResponse = new Node<string>("a");
     expectedResponse.AppendToTail("c");
