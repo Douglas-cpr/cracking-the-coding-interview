@@ -32,7 +32,8 @@ public class Question7
       }
     }
 
-    while(l1 != null)
+    // here l2 and l1 has te same length
+    while(l2 != null || l1 != null)
     {
       if (Object.ReferenceEquals(l1, l2)) return l1;
       l1 = l1.Next;
