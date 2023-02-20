@@ -3,7 +3,7 @@ namespace Chap_2_LinkedList.Helpers;
 
 public static class LinkedListHelpers 
 {
-  public static Node<T> CreateLinkedList<T>(params T[] values) where T : IEquatable<T>
+  public static Node<T> CreateLinkedList<T>(params T[] values)
   {
     if (values is null) throw new ArgumentNullException(nameof(values));
 
@@ -19,5 +19,30 @@ public static class LinkedListHelpers
     }
     
     return head;
+  }
+
+  public static Node<T> AddLoop<T>(Node<T> head, params T[] loop)
+  {
+    while (head.Next != null)
+    {
+      head = head.Next;
+    }
+
+    var loopStart = LinkedListHelpers.CreateLinkedList(loop);
+    var loopEnd = loopStart;
+
+    while (loopEnd.Next != null)
+    {
+      loopEnd = loopEnd.Next;
+    }
+
+    if (head != null)
+    {
+      head.Next = loopStart;
+    }
+
+    loopEnd.Next = loopStart;
+
+    return loopStart;
   }
 }

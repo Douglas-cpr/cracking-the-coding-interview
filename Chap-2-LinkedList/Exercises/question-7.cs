@@ -32,7 +32,7 @@ public class Question7
       }
     }
 
-    // here l2 and l1 has te same length
+    // here l2 and l1 has te same
     while(l2 != null || l1 != null)
     {
       if (Object.ReferenceEquals(l1, l2)) return l1;
@@ -46,7 +46,6 @@ public class Question7
 
   private static int GetLength<T>(Node<T> head)
   {
-    var tmp = head;
     var count = 0;
 
     while (head != null)

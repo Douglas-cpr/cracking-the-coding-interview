@@ -10,6 +10,7 @@ public static class Question1
   public static bool IsUnique(string value) 
   {
     if (string.IsNullOrEmpty(value)) return true;
+    if (value.Length > 256) return false;
 
     var charArray = value.ToCharArray();
     var passed = new List<char>();

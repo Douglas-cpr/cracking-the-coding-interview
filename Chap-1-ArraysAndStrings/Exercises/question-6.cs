@@ -20,8 +20,6 @@ public static class Question6
 
     var str = new StringBuilder();
 
-
-
     int count = 0;
 
     for (var i = 0; i < chars.Length; i++)
@@ -42,6 +40,7 @@ public static class Question6
       result.Append(item);
     }
 
+    if (value.Length < result.Length) return value;
     return result.ToString();
   }
 }

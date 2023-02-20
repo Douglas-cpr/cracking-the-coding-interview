@@ -56,4 +56,15 @@ public class TestQuestion2
       result.Should().BeTrue();
       result2.Should().BeTrue();
     }
+
+    [Fact]
+    public void ShouldFalse_WhenIsNotPermutation()
+    {
+      var input1 = "abc";
+      var input2 = "abb";
+      var result = Question2.CheckPermutation1(input1, input2);
+      var result2 = Question2.CheckPermutation2(input1, input2);
+      result.Should().BeFalse();
+      result2.Should().BeFalse();
+    }
 }
